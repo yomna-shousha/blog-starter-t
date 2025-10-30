@@ -10,5 +10,18 @@
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true
+  "upload_source_maps": true,
+  
+  // Add this queue consumer configuration
+  "queues": {
+    "consumers": [
+      {
+        "queue": "builds",  
+        "max_batch_size": 10,
+        "max_batch_timeout": 5,
+        "max_retries": 3,
+        "dead_letter_queue": "build-events-dlq"  // Optional: for failed messages
+      }
+    ]
+  }
 }
