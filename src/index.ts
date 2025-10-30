@@ -8,19 +8,13 @@ export default {
       console.log('Build UUID:', event.payload.buildUuid);
       console.log('Status:', event.payload.status);
 
-      // Do something with the event
-      // Examples:
-      // - Send Slack notification
-      // - Update a database
-      // - Trigger another workflow
-      // - Log to analytics
-
-      message.ack(); // Acknowledge the message
+      message.ack();
     }
   },
   
-  // If you have a fetch handler for HTTP requests, add it here too:
-  // async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-  //   return new Response('Hello World!');
-  // }
+  // Your existing fetch handler (if you have one)
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    // your existing code
+    return new Response('Hello');
+  }
 };
